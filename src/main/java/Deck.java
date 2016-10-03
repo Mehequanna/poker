@@ -22,8 +22,7 @@ public ArrayList<Deck> getDeck() {
 
   for (String suit : suits) {
     for(String rank : ranks) {
-      String card = rank + "of" + suit;
-      //put each String card into ArrayList newDeck
+      String card = rank + " of " + suit;
       newDeck.add(card);
     }
   }
