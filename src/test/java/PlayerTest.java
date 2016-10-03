@@ -27,4 +27,16 @@ public class PlayerTest {
     assertEquals(50, player.getScore());
   }
 
+  @Test
+  public void getBet_returnsBet_true() {
+    Player player = player1;
+    assertEquals(5, player.getBet());
+  }
+
+  @Test
+  public void setBet_changesBetAmount_true() {
+    Player player = player1;
+    player.setBet(1);
+    assertEquals(player.getBet(), 1);
+  }
 }
