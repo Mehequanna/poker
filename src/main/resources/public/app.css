@@ -1,0 +1,15 @@
+#jumbotitle {
+  font-size: 100px;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 30px red;
+  font-family: cursive;
+}
+
+.jumbotron {
+  background-color: black;
+}
+
+body {
+  background-color: #3d3d3d;
+}

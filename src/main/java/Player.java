@@ -6,7 +6,7 @@ public class Player {
   private String name;
   private int score;
   private int bet;
-  private List<Player> hand;
+  private List<String> hand;
 
   public Player(String name) {
     this.name = name;
