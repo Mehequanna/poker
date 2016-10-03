@@ -29,7 +29,7 @@ public class GameTest {
     ArrayList<Card> hand = game.getHand();
     assertEquals(hand.size(), 5);
     for (Card card : hand) {
-      System.out.println(card.getSuit() + card.getRank());
+      System.out.println(card.getRank() + "of " + card.getSuit());
     }
   }
 }

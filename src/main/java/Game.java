@@ -38,7 +38,17 @@ public class Game {
     }
     return hand;
   }
-  // public boolean isRoyalFlush() {
-  //
-  // }
+
+  // Start of winning conditions.
+  public boolean isFlush() {
+    String handSuit = hand.get(0).getSuit();
+
+    if (hand.get(1).equals(handSuit) && hand.get(2).equals(handSuit) && hand.get(3).equals(handSuit) && hand.get(4).equals(handSuit) ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  
 }
