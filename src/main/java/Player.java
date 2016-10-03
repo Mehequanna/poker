@@ -9,5 +9,14 @@ public class Player {
 
   public Player(String name) {
     this.name = name;
+    this.score = 50;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public int getScore() {
+    return score;
   }
 }

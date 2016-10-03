@@ -15,4 +15,16 @@ public class PlayerTest {
     assertTrue(player instanceof Player);
   }
 
+  @Test
+  public void getName_returnsName_true() {
+    Player player = player1;
+    assertEquals("Blake", player.getName());
+  }
+
+  @Test
+  public void getScore_returnsScore_true() {
+    Player player = player1;
+    assertEquals(50, player.getScore());
+  }
+
 }
