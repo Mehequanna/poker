@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 import org.sql2o.*;
 
 public class GameTest {
-
   @Test
   public void game_instantiates() {
     Game game = new Game("Blake");
@@ -17,7 +16,8 @@ public class GameTest {
   @Test
   public void getDeck_returnsEntireDeck() {
     Game game = new Game("Blake");
-    game.getDeck();
-    assertEquals(game.getDeck().size(), 52);
+    ArrayList<Card> cards = game.getDeck();
+    assertEquals(cards.size(), 52);
+    cards.clear();
   }
 }
