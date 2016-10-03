@@ -29,8 +29,4 @@ public class Player {
   public void setBet(int newBet) {
     this.bet = newBet;
   }
-
-  // public List<Card> getHand() {
-  //
-  // }
 }
