@@ -51,5 +51,4 @@ public class CardTest {
     Card card = new Card("Hearts", 2);
     assertTrue(card.getRank() == 2);
   }
-
 }
