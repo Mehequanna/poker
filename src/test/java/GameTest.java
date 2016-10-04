@@ -278,4 +278,61 @@ public class GameTest {
     assertTrue(game.isThreeOfAKind());
     hand.clear();
   }
+
+  @Test
+  public void isFullHouse_correctlyEvaluatesPair_true() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Clubs", 4);
+    Card cardTwo = new Card("Spades", 12);
+    Card cardThree = new Card("Diamonds", 12);
+    Card cardFour = new Card("Hearts", 12);
+    Card cardFive = new Card("Hearts", 4);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    game.getAllPairs(hand);
+    assertTrue(game.isFullHouse());
+    hand.clear();
+  }
+
+  @Test
+  public void isFourOfAKind_correctlyEvaluatesPair_true() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Clubs", 12);
+    Card cardTwo = new Card("Spades", 12);
+    Card cardThree = new Card("Diamonds", 12);
+    Card cardFour = new Card("Hearts", 12);
+    Card cardFive = new Card("Hearts", 4);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    game.getAllPairs(hand);
+    assertTrue(game.isFourOfAKind());
+    hand.clear();
+  }
+
+  @Test
+  public void isTwoPair_correctlyEvaluatesPair_true() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Clubs", 2);
+    Card cardTwo = new Card("Spades", 2);
+    Card cardThree = new Card("Diamonds", 10);
+    Card cardFour = new Card("Hearts", 10);
+    Card cardFive = new Card("Clubs", 4);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    game.getAllPairs(hand);
+    assertTrue(game.isTwoPair());
+    hand.clear();
+  }
 }

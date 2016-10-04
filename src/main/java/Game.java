@@ -180,4 +180,28 @@ public class Game {
       return false;
     }
   }
+
+  public boolean isFullHouse() {
+    if (allPairs.size() == 5) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public boolean isFourOfAKind() {
+    if (allPairs.size() == 4 && allPairs.get(0).getRank() == allPairs.get(1).getRank() && allPairs.get(0).getRank() == allPairs.get(2).getRank()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public boolean isTwoPair() {
+    if (allPairs.size() == 4 && this.isFourOfAKind() == false) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
