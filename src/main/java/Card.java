@@ -20,4 +20,14 @@ public class Card {
   public String getSuit() {
     return suit;
   }
+
+  public boolean isSameCard(Object otherCard) {
+    if(!(otherCard instanceof Card)) {
+      return false;
+    } else {
+      Card newCard = (Card) otherCard;
+      return this.getSuit().equals(newCard.getSuit()) &&
+             this.getRank().equals(newCard.getRank());
+    }
+  }
 }

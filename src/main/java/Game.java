@@ -10,9 +10,14 @@ public class Game {
   private Integer[] ranks = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
   private ArrayList<Card> newDeck = new ArrayList<Card>();
   private ArrayList<Card> hand = new ArrayList<Card>();
+  private ArrayList<Card> allPairs = new ArrayList<Card>();
 
   public Game(String playerName) {
     this.playerName = playerName;
+  }
+
+  public ArrayList<Card> getAllPairsArray() {
+    return allPairs;
   }
 
   public ArrayList<Card> getDeck() {
@@ -63,6 +68,56 @@ public class Game {
     } return lowestCard;
   }
 
+  public void getAllPairs(ArrayList<Card> hand) {
+    Card card1 = hand.get(0);
+    Card card2 = hand.get(1);
+    Card card3 = hand.get(2);
+    Card card4 = hand.get(3);
+    Card card5 = hand.get(4);
+
+    for (int i = 0; i < 5; i++) {
+      if ( (card1.getRank() == hand.get(i).getRank()) && (!(card1.isSameCard(hand.get(i))))) {
+        if (!(this.isInPairsArray(card1, allPairs))) {
+          allPairs.add(card1);
+        }
+      }
+
+      if ( (card2.getRank() == hand.get(i).getRank()) && (!(card2.isSameCard(hand.get(i))))) {
+        if (!(this.isInPairsArray(card2, allPairs))) {
+          allPairs.add(card2);
+        }
+      }
+
+      if ( (card3.getRank() == hand.get(i).getRank()) && (!(card3.isSameCard(hand.get(i))))) {
+        if (!(this.isInPairsArray(card3, allPairs))) {
+          allPairs.add(card3);
+        }
+      }
+
+      if ( (card4.getRank() == hand.get(i).getRank()) && (!(card4.isSameCard(hand.get(i))))) {
+        if (!(this.isInPairsArray(card4, allPairs))) {
+          allPairs.add(card4);
+        }
+      }
+
+      if ( (card5.getRank() == hand.get(i).getRank()) && (!(card5.isSameCard(hand.get(i))))) {
+        if (!(this.isInPairsArray(card5, allPairs))) {
+          allPairs.add(card5);
+        }
+      }
+    }
+  }
+
+  public boolean isInPairsArray(Card card, ArrayList<Card> allPairs) {
+    boolean isPair = false;
+    for (int i = 0; i < allPairs.size(); i++){
+      if (card.isSameCard(allPairs.get(i))) {
+        isPair = true;
+      }
+    }
+    return isPair;
+  }
+
   // Start of winning conditions.
   public boolean isFlush(ArrayList<Card> hand) {
     String handSuit = hand.get(0).getSuit();
@@ -74,31 +129,12 @@ public class Game {
     }
   }
 
-  public boolean isPair(ArrayList<Card> hand) {
-    String handSuit0 = hand.get(0).getSuit();
-    String handSuit1 = hand.get(1).getSuit();
-    String handSuit2 = hand.get(2).getSuit();
-    String handSuit3 = hand.get(3).getSuit();
-    String handSuit4 = hand.get(4).getSuit();
-
-    Integer cardRank0 = hand.get(0).getRank();
-    Integer cardRank1 = hand.get(1).getRank();
-    Integer cardRank2 = hand.get(2).getRank();
-    Integer cardRank3 = hand.get(3).getRank();
-    Integer cardRank4 = hand.get(4).getRank();
-
-    for (int i = 0; i < 5; i++ ) {
-      if ( (cardRank0 == hand.get(i).getRank()) && (!(handSuit0.equals(hand.get(i).getSuit()))) ) {
-        return true;
-      } else if ( (cardRank1 == hand.get(i).getRank()) && (!(handSuit1.equals(hand.get(i).getSuit()))) ) {
-        return true;
-      } else if ( (cardRank2 == hand.get(i).getRank()) && (!(handSuit2.equals(hand.get(i).getSuit()))) ) {
-        return true;
-      } else if ( (cardRank3 == hand.get(i).getRank()) && (!(handSuit3.equals(hand.get(i).getSuit()))) ) {
-        return true;
-      }
+  public boolean isPair(ArrayList<Card> allPairs) {
+    if (allPairs.size() == 2) {
+      return true;
+    } else {
+      return false;
     }
-    return false;
   }
 
   public boolean isStraight(ArrayList<Card> hand) {
