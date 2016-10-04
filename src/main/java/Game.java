@@ -113,5 +113,11 @@ public class Game {
     return straight;
   }
 
-
+  public boolean isRoyalFlush(ArrayList<Card> hand) {
+    if((!(this.isPair(hand))) && (this.getLowCard(hand).getRank() == 10)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
