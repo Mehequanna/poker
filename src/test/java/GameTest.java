@@ -32,4 +32,72 @@ public class GameTest {
       System.out.println(card.getRank() + "of " + card.getSuit());
     }
   }
+
+  @Test
+  public void ifFlush_returnsTrueIfHandIsAFlush() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Hearts", 2);
+    Card cardTwo = new Card("Hearts", 5);
+    Card cardThree = new Card("Hearts", 10);
+    Card cardFour = new Card("Hearts", 12);
+    Card cardFive = new Card("Hearts", 4);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    assertEquals(true, game.isFlush(hand));
+  }
+
+  @Test
+  public void getHighCard_returnsHighestCard() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Hearts", 2);
+    Card cardTwo = new Card("Hearts", 5);
+    Card cardThree = new Card("Hearts", 10);
+    Card cardFour = new Card("Hearts", 12);
+    Card cardFive = new Card("Hearts", 4);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    assertEquals(game.getHighCard(hand), cardFour);
+  }
+
+  @Test
+  public void getLowCard_returnsLowestCard() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Hearts", 2);
+    Card cardTwo = new Card("Hearts", 5);
+    Card cardThree = new Card("Hearts", 10);
+    Card cardFour = new Card("Hearts", 12);
+    Card cardFive = new Card("Hearts", 4);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    assertEquals(game.getLowCard(hand), cardOne);
+  }
+
+  // @Test
+  // public void isStraight_returnsTrueIsHandIsAStraight() {
+  //   ArrayList<Card> hand = new ArrayList<Card>();
+  //   Game game = new Game("Blake");
+  //   Card cardOne = new Card("Clubs", 2);
+  //   Card cardTwo = new Card("Hearts", 3);
+  //   Card cardThree = new Card("Spades", 5);
+  //   Card cardFour = new Card("Hearts", 6);
+  //   Card cardFive = new Card("Diamonds", 4);
+  //   hand.add(cardOne);
+  //   hand.add(cardTwo);
+  //   hand.add(cardThree);
+  //   hand.add(cardFour);
+  //   hand.add(cardFive);
+  //   assertEquals(true, game.isStraight(hand));
+  // }
 }

@@ -39,11 +39,35 @@ public class Game {
     return hand;
   }
 
+  public Card getHighCard(ArrayList<Card> hand) {
+    int highest = hand.get(0).getRank();
+    Card highestCard = hand.get(0);
+
+    for(int i=1; i<hand.size(); i++) {
+      if(hand.get(i).getRank() > highest) {
+        highest = hand.get(i).getRank();
+        highestCard = hand.get(i);
+      }
+    } return highestCard;
+  }
+
+  public Card getLowCard(ArrayList<Card> hand) {
+    int lowest = hand.get(0).getRank();
+    Card lowestCard = hand.get(0);
+
+    for(int i=1; i<hand.size(); i++) {
+      if(hand.get(i).getRank() < lowest) {
+        lowest = hand.get(i).getRank();
+        lowestCard = hand.get(i);
+      }
+    } return lowestCard;
+  }
+
   // Start of winning conditions.
-  public boolean isFlush() {
+  public boolean isFlush(ArrayList<Card> hand) {
     String handSuit = hand.get(0).getSuit();
 
-    if (hand.get(1).equals(handSuit) && hand.get(2).equals(handSuit) && hand.get(3).equals(handSuit) && hand.get(4).equals(handSuit) ) {
+    if (hand.get(1).getSuit().equals(handSuit) && hand.get(2).getSuit().equals(handSuit) && hand.get(3).getSuit().equals(handSuit) && hand.get(4).getSuit().equals(handSuit) ) {
       return true;
     } else {
       return false;
@@ -77,6 +101,11 @@ public class Game {
     return false;
   }
 
+  // public boolean isStraight(ArrayList<Card> hand) {
+  //   if(!(hand.isPair())) {
+  //     if()
+  //   }
+  // }
 
 
 }
