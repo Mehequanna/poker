@@ -101,11 +101,17 @@ public class Game {
     return false;
   }
 
-  // public boolean isStraight(ArrayList<Card> hand) {
-  //   if(!(hand.isPair())) {
-  //     if()
-  //   }
-  // }
+  public boolean isStraight(ArrayList<Card> hand) {
+    boolean straight = false;
+    if(!(this.isPair(hand))) {
+      if(this.getHighCard(hand).getRank() - this.getLowCard(hand).getRank() == 4){
+        straight = true;
+      }
+    } else {
+      straight = false;
+    }
+    return straight;
+  }
 
 
 }
