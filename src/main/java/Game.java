@@ -164,4 +164,20 @@ public class Game {
       return false;
     }
   }
+
+  public boolean isFacePair() {
+    if (allPairs.size() == 2 && allPairs.get(0).getRank() > 10) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public boolean isThreeOfAKind() {
+    if (allPairs.size() == 3) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

@@ -241,4 +241,41 @@ public class GameTest {
     hand.add(cardOne);
     assertEquals(true, game.isInPairsArray(cardOne, hand));
   }
+
+  @Test
+  public void isFacePair_returnsTrueIfPairIsJacksOrGreater() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Clubs", 12);
+    Card cardTwo = new Card("Spades", 12);
+    Card cardThree = new Card("Diamonds", 7);
+    Card cardFour = new Card("Hearts", 5);
+    Card cardFive = new Card("Hearts", 9);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    game.getAllPairs(hand);
+    assertEquals(true, game.isFacePair());
+  }
+
+  @Test
+  public void isThreeOfAKind_correctlyEvaluatesPair_true() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Clubs", 2);
+    Card cardTwo = new Card("Spades", 12);
+    Card cardThree = new Card("Diamonds", 12);
+    Card cardFour = new Card("Hearts", 12);
+    Card cardFive = new Card("Hearts", 4);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    game.getAllPairs(hand);
+    assertTrue(game.isThreeOfAKind());
+    hand.clear();
+  }
 }
