@@ -128,16 +128,34 @@ public class GameTest {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("Blake");
     Card cardOne = new Card("Clubs", 10);
-    Card cardTwo = new Card("Hearts", 12);
-    Card cardThree = new Card("Spades", 11);
-    Card cardFour = new Card("Hearts", 13);
-    Card cardFive = new Card("Diamonds", 14);
+    Card cardTwo = new Card("Clubs", 12);
+    Card cardThree = new Card("Clubs", 11);
+    Card cardFour = new Card("Clubs", 13);
+    Card cardFive = new Card("Clubs", 14);
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
     hand.add(cardFour);
     hand.add(cardFive);
     assertEquals(true, game.isRoyalFlush(hand));
+    hand.clear();
+  }
+
+  @Test
+  public void isStraightFlush_returnsTrueIfHandIsStraightFlush() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Clubs", 10);
+    Card cardTwo = new Card("Clubs", 12);
+    Card cardThree = new Card("Clubs", 11);
+    Card cardFour = new Card("Clubs", 13);
+    Card cardFive = new Card("Clubs", 9);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    assertEquals(true, game.isStraightFlush(hand));
     hand.clear();
   }
 }
