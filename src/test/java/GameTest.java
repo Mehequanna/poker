@@ -10,13 +10,13 @@ public class GameTest {
 
   @Test
   public void game_instantiates() {
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     assertTrue(game instanceof Game);
   }
 
   @Test
   public void getDeck_returnsEntireDeck() {
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     ArrayList<Card> cards = game.getDeck();
     assertEquals(cards.size(), 52);
     cards.clear();
@@ -24,17 +24,16 @@ public class GameTest {
 
   @Test
   public void getHand_returnsFiveCards() {
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     ArrayList<Card> cards = game.getDeck();
     ArrayList<Card> hand = game.getHand();
     assertEquals(hand.size(), 5);
-    cards.clear();
   }
 
   @Test
   public void ifFlush_returnsTrueIfHandIsAFlush() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Hearts", 2);
     Card cardTwo = new Card("Hearts", 5);
     Card cardThree = new Card("Hearts", 10);
@@ -52,7 +51,7 @@ public class GameTest {
   @Test
   public void getHighCard_returnsHighestCard() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Hearts", 2);
     Card cardTwo = new Card("Hearts", 5);
     Card cardThree = new Card("Hearts", 10);
@@ -70,7 +69,7 @@ public class GameTest {
   @Test
   public void getLowCard_returnsLowestCard() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Hearts", 2);
     Card cardTwo = new Card("Hearts", 5);
     Card cardThree = new Card("Hearts", 10);
@@ -88,7 +87,7 @@ public class GameTest {
   @Test
   public void isPair_correctlyEvaluatesPair_true() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 2);
     Card cardTwo = new Card("Spades", 12);
     Card cardThree = new Card("Diamonds", 10);
@@ -108,7 +107,7 @@ public class GameTest {
   @Test
   public void isStraight_returnsTrueIsHandIsAStraight() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 2);
     Card cardTwo = new Card("Hearts", 3);
     Card cardThree = new Card("Spades", 5);
@@ -126,7 +125,7 @@ public class GameTest {
   @Test
   public void isRoyalFlush_returnsTrueIfHandIsRoyalFlush() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 10);
     Card cardTwo = new Card("Clubs", 12);
     Card cardThree = new Card("Clubs", 11);
@@ -144,7 +143,7 @@ public class GameTest {
   @Test
   public void isStraightFlush_returnsTrueIfHandIsStraightFlush() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 10);
     Card cardTwo = new Card("Clubs", 12);
     Card cardThree = new Card("Clubs", 11);
@@ -162,7 +161,7 @@ public class GameTest {
   @Test
   public void getAllPairsArray_returnsCorrectSizeArray_4() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 12);
     Card cardTwo = new Card("Spades", 12);
     Card cardThree = new Card("Diamonds", 12);
@@ -182,7 +181,7 @@ public class GameTest {
   @Test
   public void getAllPairsFullHouse_returnsCorrectSizeArray_5() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 12);
     Card cardTwo = new Card("Spades", 7);
     Card cardThree = new Card("Diamonds", 7);
@@ -200,7 +199,7 @@ public class GameTest {
   @Test
   public void getAllPairs_returnsCorrectSizeArray_3() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 12);
     Card cardTwo = new Card("Spades", 7);
     Card cardThree = new Card("Diamonds", 7);
@@ -218,7 +217,7 @@ public class GameTest {
   @Test
   public void getAllPairs_returnsCorrectSizeArray_2() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 12);
     Card cardTwo = new Card("Spades", 7);
     Card cardThree = new Card("Diamonds", 7);
@@ -236,7 +235,7 @@ public class GameTest {
   @Test
   public void isInPairsArray_returnsTrueIfArrayContainsCard() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 12);
     hand.add(cardOne);
     assertEquals(true, game.isInPairsArray(cardOne, hand));
@@ -245,7 +244,7 @@ public class GameTest {
   @Test
   public void isFacePair_returnsTrueIfPairIsJacksOrGreater() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 12);
     Card cardTwo = new Card("Spades", 12);
     Card cardThree = new Card("Diamonds", 7);
@@ -263,7 +262,7 @@ public class GameTest {
   @Test
   public void isThreeOfAKind_correctlyEvaluatesPair_true() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 2);
     Card cardTwo = new Card("Spades", 12);
     Card cardThree = new Card("Diamonds", 12);
@@ -282,7 +281,7 @@ public class GameTest {
   @Test
   public void isFullHouse_correctlyEvaluatesPair_true() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 4);
     Card cardTwo = new Card("Spades", 12);
     Card cardThree = new Card("Diamonds", 12);
@@ -301,7 +300,7 @@ public class GameTest {
   @Test
   public void isFourOfAKind_correctlyEvaluatesPair_true() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 12);
     Card cardTwo = new Card("Spades", 12);
     Card cardThree = new Card("Diamonds", 12);
@@ -320,7 +319,7 @@ public class GameTest {
   @Test
   public void isTwoPair_correctlyEvaluatesPair_true() {
     ArrayList<Card> hand = new ArrayList<Card>();
-    Game game = new Game("Blake");
+    Game game = new Game("GameOne");
     Card cardOne = new Card("Clubs", 2);
     Card cardTwo = new Card("Spades", 2);
     Card cardThree = new Card("Diamonds", 10);
