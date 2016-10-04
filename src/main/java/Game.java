@@ -50,5 +50,33 @@ public class Game {
     }
   }
 
-  
+  public boolean isPair() {
+    String handSuit0 = hand.get(0).getSuit();
+    String handSuit1 = hand.get(1).getSuit();
+    String handSuit2 = hand.get(2).getSuit();
+    String handSuit3 = hand.get(3).getSuit();
+    String handSuit4 = hand.get(4).getSuit();
+
+    Integer cardRank0 = hand.get(0).getRank();
+    Integer cardRank1 = hand.get(1).getRank();
+    Integer cardRank2 = hand.get(2).getRank();
+    Integer cardRank3 = hand.get(3).getRank();
+    Integer cardRank4 = hand.get(4).getRank();
+
+    for (int i = 0; i < 5; i++ ) {
+      if ( (cardRank0 == hand.get(i).getRank()) && (!(handSuit0.equals(hand.get(i).getSuit()))) ) {
+        return true;
+      } else if ( (cardRank1 == hand.get(i).getRank()) && (!(handSuit1.equals(hand.get(i).getSuit()))) ) {
+        return true;
+      } else if ( (cardRank2 == hand.get(i).getRank()) && (!(handSuit2.equals(hand.get(i).getSuit()))) ) {
+        return true;
+      } else if ( (cardRank3 == hand.get(i).getRank()) && (!(handSuit3.equals(hand.get(i).getSuit()))) ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+
+
 }
