@@ -48,6 +48,7 @@ public class GameTest {
     hand.add(cardFour);
     hand.add(cardFive);
     assertEquals(true, game.isFlush(hand));
+    hand.clear();
   }
 
   @Test
@@ -65,6 +66,7 @@ public class GameTest {
     hand.add(cardFour);
     hand.add(cardFive);
     assertEquals(game.getHighCard(hand), cardFour);
+    hand.clear();
   }
 
   @Test
@@ -82,6 +84,7 @@ public class GameTest {
     hand.add(cardFour);
     hand.add(cardFive);
     assertEquals(game.getLowCard(hand), cardOne);
+    hand.clear();
   }
 
   @Test
@@ -99,22 +102,24 @@ public class GameTest {
     hand.add(cardFour);
     hand.add(cardFive);
     assertTrue(game.isPair(hand));
+    hand.clear();
   }
 
-  // @Test
-  // public void isStraight_returnsTrueIsHandIsAStraight() {
-  //   ArrayList<Card> hand = new ArrayList<Card>();
-  //   Game game = new Game("Blake");
-  //   Card cardOne = new Card("Clubs", 2);
-  //   Card cardTwo = new Card("Hearts", 3);
-  //   Card cardThree = new Card("Spades", 5);
-  //   Card cardFour = new Card("Hearts", 6);
-  //   Card cardFive = new Card("Diamonds", 4);
-  //   hand.add(cardOne);
-  //   hand.add(cardTwo);
-  //   hand.add(cardThree);
-  //   hand.add(cardFour);
-  //   hand.add(cardFive);
-  //   assertEquals(true, game.isStraight(hand));
-  // }
+  @Test
+  public void isStraight_returnsTrueIsHandIsAStraight() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Clubs", 2);
+    Card cardTwo = new Card("Hearts", 3);
+    Card cardThree = new Card("Spades", 5);
+    Card cardFour = new Card("Hearts", 6);
+    Card cardFive = new Card("Diamonds", 4);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    assertEquals(true, game.isStraight(hand));
+    hand.clear();
+  }
 }
