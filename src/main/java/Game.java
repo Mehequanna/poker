@@ -68,17 +68,6 @@ public class Game {
     } return lowestCard;
   }
 
-  // Start of winning conditions.
-  public boolean isFlush(ArrayList<Card> hand) {
-    String handSuit = hand.get(0).getSuit();
-
-    if (hand.get(1).getSuit().equals(handSuit) && hand.get(2).getSuit().equals(handSuit) && hand.get(3).getSuit().equals(handSuit) && hand.get(4).getSuit().equals(handSuit) ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   public void getAllPairs(ArrayList<Card> hand) {
     Card card1 = hand.get(0);
     Card card2 = hand.get(1);
@@ -129,31 +118,23 @@ public class Game {
     return isPair;
   }
 
-  public boolean isPair(ArrayList<Card> hand) {
-    String handSuit0 = hand.get(0).getSuit();
-    String handSuit1 = hand.get(1).getSuit();
-    String handSuit2 = hand.get(2).getSuit();
-    String handSuit3 = hand.get(3).getSuit();
-    String handSuit4 = hand.get(4).getSuit();
+  // Start of winning conditions.
+  public boolean isFlush(ArrayList<Card> hand) {
+    String handSuit = hand.get(0).getSuit();
 
-    Integer cardRank0 = hand.get(0).getRank();
-    Integer cardRank1 = hand.get(1).getRank();
-    Integer cardRank2 = hand.get(2).getRank();
-    Integer cardRank3 = hand.get(3).getRank();
-    Integer cardRank4 = hand.get(4).getRank();
-
-    for (int i = 0; i < 5; i++ ) {
-      if ( (cardRank0 == hand.get(i).getRank()) && (!(handSuit0.equals(hand.get(i).getSuit()))) ) {
-        return true;
-      } else if ( (cardRank1 == hand.get(i).getRank()) && (!(handSuit1.equals(hand.get(i).getSuit()))) ) {
-        return true;
-      } else if ( (cardRank2 == hand.get(i).getRank()) && (!(handSuit2.equals(hand.get(i).getSuit()))) ) {
-        return true;
-      } else if ( (cardRank3 == hand.get(i).getRank()) && (!(handSuit3.equals(hand.get(i).getSuit()))) ) {
-        return true;
-      }
+    if (hand.get(1).getSuit().equals(handSuit) && hand.get(2).getSuit().equals(handSuit) && hand.get(3).getSuit().equals(handSuit) && hand.get(4).getSuit().equals(handSuit) ) {
+      return true;
+    } else {
+      return false;
     }
-    return false;
+  }
+
+  public boolean isPair(ArrayList<Card> allPairs) {
+    if (allPairs.size() == 2) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public boolean isStraight(ArrayList<Card> hand) {
