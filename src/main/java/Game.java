@@ -10,9 +10,14 @@ public class Game {
   private Integer[] ranks = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
   private ArrayList<Card> newDeck = new ArrayList<Card>();
   private ArrayList<Card> hand = new ArrayList<Card>();
+  private ArrayList<Card> allPairs = new ArrayList<Card>();
 
   public Game(String playerName) {
     this.playerName = playerName;
+  }
+
+  public ArrayList<Card> getAllPairsArray() {
+    return allPairs;
   }
 
   public ArrayList<Card> getDeck() {
@@ -72,6 +77,56 @@ public class Game {
     } else {
       return false;
     }
+  }
+
+  public void getAllPairs(ArrayList<Card> hand) {
+    Card card1 = hand.get(0);
+    Card card2 = hand.get(1);
+    Card card3 = hand.get(2);
+    Card card4 = hand.get(3);
+    Card card5 = hand.get(4);
+
+    for (int i = 0; i < 5; i++) {
+      if ( (card1.getRank() == hand.get(i).getRank()) && (!(card1.isSameCard(hand.get(i))))) {
+        if (!(this.isInPairsArray(card1, allPairs))) {
+          allPairs.add(card1);
+        }
+      }
+
+      if ( (card2.getRank() == hand.get(i).getRank()) && (!(card2.isSameCard(hand.get(i))))) {
+        if (!(this.isInPairsArray(card2, allPairs))) {
+          allPairs.add(card2);
+        }
+      }
+
+      if ( (card3.getRank() == hand.get(i).getRank()) && (!(card3.isSameCard(hand.get(i))))) {
+        if (!(this.isInPairsArray(card3, allPairs))) {
+          allPairs.add(card3);
+        }
+      }
+
+      if ( (card4.getRank() == hand.get(i).getRank()) && (!(card4.isSameCard(hand.get(i))))) {
+        if (!(this.isInPairsArray(card4, allPairs))) {
+          allPairs.add(card4);
+        }
+      }
+
+      if ( (card5.getRank() == hand.get(i).getRank()) && (!(card5.isSameCard(hand.get(i))))) {
+        if (!(this.isInPairsArray(card5, allPairs))) {
+          allPairs.add(card5);
+        }
+      }
+    }
+  }
+
+  public boolean isInPairsArray(Card card, ArrayList<Card> allPairs) {
+    boolean isPair = false;
+    for (int i = 0; i < allPairs.size(); i++){
+      if (card.isSameCard(allPairs.get(i))) {
+        isPair = true;
+      }
+    }
+    return isPair;
   }
 
   public boolean isPair(ArrayList<Card> hand) {

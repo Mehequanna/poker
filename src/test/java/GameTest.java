@@ -28,9 +28,7 @@ public class GameTest {
     ArrayList<Card> cards = game.getDeck();
     ArrayList<Card> hand = game.getHand();
     assertEquals(hand.size(), 5);
-    for (Card card : hand) {
-      System.out.println(card.getRank() + "of " + card.getSuit());
-    }
+    cards.clear();
   }
 
   @Test
@@ -91,9 +89,9 @@ public class GameTest {
   public void isPair_correctlyEvaluatesPair_true() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("Blake");
-    Card cardOne = new Card("clubs", 2);
-    Card cardTwo = new Card("spades", 12);
-    Card cardThree = new Card("diamonds", 10);
+    Card cardOne = new Card("Clubs", 2);
+    Card cardTwo = new Card("Spades", 12);
+    Card cardThree = new Card("Diamonds", 10);
     Card cardFour = new Card("Hearts", 12);
     Card cardFive = new Card("Hearts", 4);
     hand.add(cardOne);
@@ -157,5 +155,34 @@ public class GameTest {
     hand.add(cardFive);
     assertEquals(true, game.isStraightFlush(hand));
     hand.clear();
+  }
+
+  @Test
+  public void getAllPairsArray_returnsCorrectSizeArray() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Clubs", 12);
+    Card cardTwo = new Card("Spades", 12);
+    Card cardThree = new Card("Diamonds", 12);
+    Card cardFour = new Card("Hearts", 12);
+    Card cardFive = new Card("Hearts", 4);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    game.getAllPairs(hand);
+    System.out.println(game.getAllPairsArray().get(0).getSuit());
+    System.out.println(game.getAllPairsArray().get(1).getSuit());
+    assertEquals(game.getAllPairsArray().size(), 4);
+  }
+
+  @Test
+  public void isInPairsArray_returnsTrueIfArrayContainsCard() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Clubs", 12);
+    hand.add(cardOne);
+    assertEquals(true, game.isInPairsArray(cardOne, hand));
   }
 }
