@@ -40,15 +40,15 @@ public class Game {
   }
 
   // Start of winning conditions.
-  public boolean isFlush() {
+  public boolean isFlush(ArrayList<Card> hand) {
     String handSuit = hand.get(0).getSuit();
 
-    if (hand.get(1).equals(handSuit) && hand.get(2).equals(handSuit) && hand.get(3).equals(handSuit) && hand.get(4).equals(handSuit) ) {
+    if (hand.get(1).getSuit().equals(handSuit) && hand.get(2).getSuit().equals(handSuit) && hand.get(3).getSuit().equals(handSuit) && hand.get(4).getSuit().equals(handSuit) ) {
       return true;
     } else {
       return false;
     }
   }
 
-  
+
 }

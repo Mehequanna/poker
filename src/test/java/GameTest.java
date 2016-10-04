@@ -32,4 +32,21 @@ public class GameTest {
       System.out.println(card.getRank() + "of " + card.getSuit());
     }
   }
+
+  @Test
+  public void ifFlush_returnsTrueIfHandIsAFlush() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("Hearts", 2);
+    Card cardTwo = new Card("Hearts", 5);
+    Card cardThree = new Card("Hearts", 10);
+    Card cardFour = new Card("Hearts", 12);
+    Card cardFive = new Card("Hearts", 4);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    assertEquals(true, game.isFlush(hand));
+  }
 }
