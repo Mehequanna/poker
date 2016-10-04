@@ -5,15 +5,15 @@ import java.util.Random;
 import org.sql2o.*;
 
 public class Game {
-  private String playerName;
+  private String gameName;
   private String[] suits = {"clubs", "spades", "hearts", "diamonds"};
   private Integer[] ranks = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
   private ArrayList<Card> newDeck = new ArrayList<Card>();
   private ArrayList<Card> hand = new ArrayList<Card>();
   private ArrayList<Card> allPairs = new ArrayList<Card>();
 
-  public Game(String playerName) {
-    this.playerName = playerName;
+  public Game(String gameName) {
+    this.gameName = gameName;
   }
 
   public ArrayList<Card> getAllPairsArray() {
@@ -203,5 +203,32 @@ public class Game {
     } else {
       return false;
     }
+  }
+
+  public int getMultiplier(Player player) {
+    int multiplier = 0;
+    if (this.isRoyalFlush(hand)) {
+      multiplier = 250;
+    } else if (this.isStraightFlush(hand)) {
+      multiplier = 50;
+    } else if (this.isFourOfAKind()) {
+      multiplier = 25;
+    } else if (this.isFullHouse()) {
+      multiplier = 9;
+    } else if (this.isFlush(hand)) {
+      multiplier = 6;
+    } else if (this.isStraight(hand)) {
+      multiplier = 4;
+    } else if (this.isThreeOfAKind()) {
+      multiplier = 3;
+    } else if (this.isTwoPair()) {
+      multiplier = 2;
+    } else if (this.isFacePair()) {
+      multiplier = 1;
+    }
+    int bet = player.getBet();
+    Integer score = player.getScore();
+    score += multiplier * bet;
+    return score;
   }
 }
