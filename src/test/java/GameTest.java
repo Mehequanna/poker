@@ -84,6 +84,23 @@ public class GameTest {
     assertEquals(game.getLowCard(hand), cardOne);
   }
 
+  @Test
+  public void isPair_correctlyEvaluatesPair_true() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("Blake");
+    Card cardOne = new Card("clubs", 2);
+    Card cardTwo = new Card("spades", 12);
+    Card cardThree = new Card("diamonds", 10);
+    Card cardFour = new Card("Hearts", 12);
+    Card cardFive = new Card("Hearts", 4);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    assertTrue(game.isPair(hand));
+  }
+
   // @Test
   // public void isStraight_returnsTrueIsHandIsAStraight() {
   //   ArrayList<Card> hand = new ArrayList<Card>();
