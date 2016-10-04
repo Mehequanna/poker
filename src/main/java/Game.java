@@ -74,7 +74,7 @@ public class Game {
     }
   }
 
-  public boolean isPair() {
+  public boolean isPair(ArrayList<Card> hand) {
     String handSuit0 = hand.get(0).getSuit();
     String handSuit1 = hand.get(1).getSuit();
     String handSuit2 = hand.get(2).getSuit();
