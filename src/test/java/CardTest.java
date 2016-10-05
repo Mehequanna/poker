@@ -10,26 +10,26 @@ public class CardTest {
 
   @Test
   public void card_instantiatesCorrectly_true() {
-    Card pokerCard = new Card("Hearts", 2);
+    Card pokerCard = new Card("Hearts", 2, "../images/image.jpg");
     assertTrue(pokerCard instanceof Card);
   }
 
   @Test
   public void getSuit_returnsSuit_true() {
-    Card card = new Card("Hearts", 2);
+    Card card = new Card("Hearts", 2, "../images/image.jpg");
     assertEquals(card.getSuit(), "Hearts");
   }
 
   @Test
   public void getRank_returnsSuit_true() {
-    Card card = new Card("Hearts", 2);
+    Card card = new Card("Hearts", 2, "../images/image.jpg");
     assertTrue(card.getRank() == 2);
   }
 
   @Test
   public void isSameCard_returnsTrueIfCardsAreSame() {
-    Card card = new Card("Hearts", 2);
-    Card otherCard = new Card("Hearts", 2);
+    Card card = new Card("Hearts", 2, "../images/image.jpg");
+    Card otherCard = new Card("Hearts", 2, "../images/image.jpg");
     assertTrue(card.isSameCard(otherCard));
   }
 }
