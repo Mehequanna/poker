@@ -1,17 +1,24 @@
 import org.sql2o.*;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Player {
   private String name;
   private int score;
   private int bet;
   private List<String> hand;
+  private static ArrayList<Player> players = new ArrayList<Player>();
 
   public Player(String name) {
     this.name = name;
     this.score = 50;
     this.bet = 5;
+    players.add(this);
+  }
+
+  public static ArrayList<Player> all() {
+    return players;
   }
 
   public String getName() {

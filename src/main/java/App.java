@@ -17,12 +17,21 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/play", (request, response) -> {
+    post("/board", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String playerName = request.queryParams("playerName");
       Player player = new Player(playerName);
-      model.put("template", "templates/play.vtl");
+      Game game = new Game("Game1");
+      model.put("template", "templates/board.vtl");
       model.put("player", player);
+      model.put("game", game);
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/board", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/board.vtl");
+      model.put("player", Player.all().get(0));
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
   }
