@@ -13,10 +13,17 @@ public class App {
 
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    post("/play", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      String playerName = request.queryParams("playerName");
+      Player player = new Player(playerName);
+      model.put("template", "templates/play.vtl");
+      model.put("player", player);
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 }
