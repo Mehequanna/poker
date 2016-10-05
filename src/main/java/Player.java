@@ -29,4 +29,8 @@ public class Player {
   public void setBet(int newBet) {
     this.bet = newBet;
   }
+
+  public void setScore(int newScore) {
+    this.score = newScore;
+  }
 }

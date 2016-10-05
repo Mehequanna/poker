@@ -39,4 +39,11 @@ public class PlayerTest {
     player.setBet(1);
     assertEquals(player.getBet(), 1);
   }
+
+  @Test
+  public void setScore_updatesScore() {
+    Player player = player1;
+    player.setScore(75);
+    assertEquals(player.getScore(), 75);
+  }
 }

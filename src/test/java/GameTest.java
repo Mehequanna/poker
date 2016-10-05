@@ -334,4 +334,24 @@ public class GameTest {
     assertTrue(game.isTwoPair());
     hand.clear();
   }
+
+  @Test
+  public void updateScore_correctlyUpdatesScore() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Player player = new Player("Blake");
+    Game game = new Game("GameOne");
+    Card cardOne = new Card("Clubs", 2);
+    Card cardTwo = new Card("Spades", 2);
+    Card cardThree = new Card("Diamonds", 10);
+    Card cardFour = new Card("Hearts", 10);
+    Card cardFive = new Card("Clubs", 4);
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    game.getAllPairs(hand);
+    game.updateScore(player, hand);
+    assertEquals(player.getScore(), 60);
+  }
 }

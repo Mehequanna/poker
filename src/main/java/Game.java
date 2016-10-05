@@ -205,8 +205,10 @@ public class Game {
     }
   }
 
-  public int getMultiplier(Player player) {
+  public int updateScore(Player player, ArrayList<Card> hand) {
     int multiplier = 0;
+    int bet = player.getBet();
+    Integer score = player.getScore();
     if (this.isRoyalFlush(hand)) {
       multiplier = 250;
     } else if (this.isStraightFlush(hand)) {
@@ -226,9 +228,13 @@ public class Game {
     } else if (this.isFacePair()) {
       multiplier = 1;
     }
-    int bet = player.getBet();
-    Integer score = player.getScore();
-    score += multiplier * bet;
+
+    if (multiplier == 0) {
+      score -= bet;
+    } else if (multiplier > 0) {
+      score += multiplier * bet;
+    }
+    player.setScore(score);
     return score;
   }
 }
