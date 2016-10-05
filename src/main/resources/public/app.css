@@ -8,8 +8,47 @@
 
 .jumbotron {
   background-color: black;
+  margin-bottom: 0px;
 }
 
 body {
   background-color: #3d3d3d;
+}
+
+#playerEntryDiv {
+  text-align: center;
+  background-color: lightgrey;
+  border: 2px solid black;
+  margin: 0 auto;
+  padding-bottom: 25px;
+  width: 40%;
+}
+
+#playerNameEntry {
+  font-size: 52px;
+  font-family: cursive;
+  color: black;
+}
+
+.tableDiv {
+  text-align: center;
+  margin-top: 0px;
+}
+
+#winnings {
+  color: black;
+  text-shadow: 0 0 8px white;
+  margin-top: 5px;
+}
+.table {
+  width: 50%;
+  background-color: lightgrey;
+  color: black;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+img {
+  margin: 10px 0;
+  width: 90%;
 }
