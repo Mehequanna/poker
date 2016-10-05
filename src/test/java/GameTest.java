@@ -182,8 +182,6 @@ public class GameTest {
     hand.add(cardFour);
     hand.add(cardFive);
     game.getAllPairs(hand);
-    System.out.println(game.getAllPairsArray().get(0).getSuit());
-    System.out.println(game.getAllPairsArray().get(1).getSuit());
     assertEquals(game.getAllPairsArray().size(), 4);
   }
 
@@ -362,5 +360,36 @@ public class GameTest {
     game.getAllPairs(hand);
     game.updateScore(player, hand);
     assertEquals(player.getScore(), 60);
+  }
+
+  @Test
+  public void exchangeCards_correctlyUpdatesHand() {
+    Player player = new Player("Blake");
+    Game game = new Game("GameOne");
+    game.getDeck();
+    ArrayList<Card> exchangeList = new ArrayList<Card>();
+    game.getHand();
+    ArrayList<Card> hand = game.getHandCards();
+    Card cardOne = hand.get(0);
+    Card cardTwo = hand.get(1);
+    Card cardThree = hand.get(2);
+    Card cardFour = hand.get(3);
+    Card cardFive = hand.get(4);
+    System.out.println(cardOne.getRank() + " of " + cardOne.getSuit());
+    System.out.println(cardTwo.getRank() + " of " + cardTwo.getSuit());
+    System.out.println(cardThree.getRank() + " of " + cardThree.getSuit());
+    System.out.println(cardFour.getRank() + " of " + cardFour.getSuit());
+    System.out.println(cardFive.getRank() + " of " + cardFive.getSuit());
+    exchangeList.add(cardOne);
+    exchangeList.add(cardTwo);
+    exchangeList.add(cardThree);
+    game.exchangeCards(hand, exchangeList);
+    System.out.println("____________________________________________________");
+    System.out.println(hand.get(0).getRank() + " of " + hand.get(0).getSuit());
+    System.out.println(hand.get(1).getRank() + " of " + hand.get(1).getSuit());
+    System.out.println(hand.get(2).getRank() + " of " + hand.get(2).getSuit());
+    System.out.println(hand.get(3).getRank() + " of " + hand.get(3).getSuit());
+    System.out.println(hand.get(4).getRank() + " of " + hand.get(4).getSuit());
+    assertEquals(game.getDeckCards().size(), 44);
   }
 }

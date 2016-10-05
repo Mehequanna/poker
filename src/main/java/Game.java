@@ -11,6 +11,7 @@ public class Game {
   private ArrayList<Card> newDeck = new ArrayList<Card>();
   private ArrayList<Card> hand = new ArrayList<Card>();
   private ArrayList<Card> allPairs = new ArrayList<Card>();
+  private ArrayList<Card> exchangeList = new ArrayList<Card>();
 
   public Game(String gameName) {
     this.gameName = gameName;
@@ -18,6 +19,14 @@ public class Game {
 
   public ArrayList<Card> getAllPairsArray() {
     return allPairs;
+  }
+
+  public ArrayList<Card> getDeckCards() {
+    return newDeck;
+  }
+
+  public ArrayList<Card> getHandCards() {
+    return hand;
   }
 
   public ArrayList<Card> getDeck() {
@@ -34,17 +43,26 @@ public class Game {
   }
 
   public ArrayList<Card> getHand() {
-    int cardsLeft = 52;
-
     for (int i = 0; i < 5; i++) {
       Random random = new Random();
-      int randomNumber = random.nextInt(cardsLeft) + 1;
+      int randomNumber = random.nextInt(newDeck.size()) + 1;
       Card chosen = newDeck.get(randomNumber);
       hand.add(chosen);
       newDeck.remove(chosen);
-      cardsLeft --;
     }
     return hand;
+  }
+
+  public void exchangeCards(ArrayList<Card> hand, ArrayList<Card> exchangeList) {
+    for (int i = 0; i < exchangeList.size(); i++) {
+      Card exchangeCard = exchangeList.get(i);
+      hand.remove(exchangeCard);
+      Random random = new Random();
+      int randomNumber = random.nextInt(newDeck.size()) + 1;
+      Card chosen = newDeck.get(randomNumber);
+      hand.add(chosen);
+      newDeck.remove(chosen);
+    }
   }
 
   public Card getHighCard(ArrayList<Card> hand) {
