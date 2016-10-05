@@ -23,7 +23,10 @@ public class Game {
   public ArrayList<Card> getDeck() {
     for (String suit : suits) {
       for(int rank : ranks) {
-        Card card = new Card(suit, rank);
+        int value = 1;
+        String link = "../images/" + value + ".svg";
+        Card card = new Card(suit, rank, link);
+        value ++;
         newDeck.add(card);
       }
     }

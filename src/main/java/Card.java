@@ -7,10 +7,12 @@ import org.sql2o.*;
 public class Card {
   private Integer rank;
   private String suit;
+  private String link;
 
-  public Card(String suit, Integer rank) {
+  public Card(String suit, Integer rank, String link) {
     this.suit = suit;
     this.rank = rank;
+    this.link = link;
   }
 
   public Integer getRank() {
@@ -19,6 +21,10 @@ public class Card {
 
   public String getSuit() {
     return suit;
+  }
+
+  public String getLink() {
+    return link;
   }
 
   public boolean isSameCard(Object otherCard) {

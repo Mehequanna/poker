@@ -31,14 +31,23 @@ public class GameTest {
   }
 
   @Test
+  public void getLink_returnsImageLink() {
+    Game game = new Game("GameOne");
+    ArrayList<Card> cards = game.getDeck();
+    ArrayList<Card> hand = game.getHand();
+    String imageLink = cards.get(0).getLink();
+    assertEquals(imageLink, "../images/1.svg");
+  }
+
+  @Test
   public void ifFlush_returnsTrueIfHandIsAFlush() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Hearts", 2);
-    Card cardTwo = new Card("Hearts", 5);
-    Card cardThree = new Card("Hearts", 10);
-    Card cardFour = new Card("Hearts", 12);
-    Card cardFive = new Card("Hearts", 4);
+    Card cardOne = new Card("Hearts", 2, "../images/image.jpg");
+    Card cardTwo = new Card("Hearts", 5, "../images/image.jpg");
+    Card cardThree = new Card("Hearts", 10, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 12, "../images/image.jpg");
+    Card cardFive = new Card("Hearts", 4, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -52,11 +61,11 @@ public class GameTest {
   public void getHighCard_returnsHighestCard() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Hearts", 2);
-    Card cardTwo = new Card("Hearts", 5);
-    Card cardThree = new Card("Hearts", 10);
-    Card cardFour = new Card("Hearts", 12);
-    Card cardFive = new Card("Hearts", 4);
+    Card cardOne = new Card("Hearts", 2, "../images/image.jpg");
+    Card cardTwo = new Card("Hearts", 5, "../images/image.jpg");
+    Card cardThree = new Card("Hearts", 10, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 12, "../images/image.jpg");
+    Card cardFive = new Card("Hearts", 4, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -70,11 +79,11 @@ public class GameTest {
   public void getLowCard_returnsLowestCard() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Hearts", 2);
-    Card cardTwo = new Card("Hearts", 5);
-    Card cardThree = new Card("Hearts", 10);
-    Card cardFour = new Card("Hearts", 12);
-    Card cardFive = new Card("Hearts", 4);
+    Card cardOne = new Card("Hearts", 2, "../images/image.jpg");
+    Card cardTwo = new Card("Hearts", 5, "../images/image.jpg");
+    Card cardThree = new Card("Hearts", 10, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 12, "../images/image.jpg");
+    Card cardFive = new Card("Hearts", 4, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -88,11 +97,11 @@ public class GameTest {
   public void isPair_correctlyEvaluatesPair_true() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 2);
-    Card cardTwo = new Card("Spades", 12);
-    Card cardThree = new Card("Diamonds", 10);
-    Card cardFour = new Card("Hearts", 12);
-    Card cardFive = new Card("Hearts", 4);
+    Card cardOne = new Card("Clubs", 2, "../images/image.jpg");
+    Card cardTwo = new Card("Spades", 12, "../images/image.jpg");
+    Card cardThree = new Card("Diamonds", 10, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 12, "../images/image.jpg");
+    Card cardFive = new Card("Hearts", 4, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -108,11 +117,11 @@ public class GameTest {
   public void isStraight_returnsTrueIsHandIsAStraight() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 2);
-    Card cardTwo = new Card("Hearts", 3);
-    Card cardThree = new Card("Spades", 5);
-    Card cardFour = new Card("Hearts", 6);
-    Card cardFive = new Card("Diamonds", 4);
+    Card cardOne = new Card("Clubs", 2, "../images/image.jpg");
+    Card cardTwo = new Card("Hearts", 3, "../images/image.jpg");
+    Card cardThree = new Card("Spades", 5, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 6, "../images/image.jpg");
+    Card cardFive = new Card("Diamonds", 4, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -126,11 +135,11 @@ public class GameTest {
   public void isRoyalFlush_returnsTrueIfHandIsRoyalFlush() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 10);
-    Card cardTwo = new Card("Clubs", 12);
-    Card cardThree = new Card("Clubs", 11);
-    Card cardFour = new Card("Clubs", 13);
-    Card cardFive = new Card("Clubs", 14);
+    Card cardOne = new Card("Clubs", 10, "../images/image.jpg");
+    Card cardTwo = new Card("Clubs", 12, "../images/image.jpg");
+    Card cardThree = new Card("Clubs", 11, "../images/image.jpg");
+    Card cardFour = new Card("Clubs", 13, "../images/image.jpg");
+    Card cardFive = new Card("Clubs", 14, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -144,11 +153,11 @@ public class GameTest {
   public void isStraightFlush_returnsTrueIfHandIsStraightFlush() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 10);
-    Card cardTwo = new Card("Clubs", 12);
-    Card cardThree = new Card("Clubs", 11);
-    Card cardFour = new Card("Clubs", 13);
-    Card cardFive = new Card("Clubs", 9);
+    Card cardOne = new Card("Clubs", 10, "../images/image.jpg");
+    Card cardTwo = new Card("Clubs", 12, "../images/image.jpg");
+    Card cardThree = new Card("Clubs", 11, "../images/image.jpg");
+    Card cardFour = new Card("Clubs", 13, "../images/image.jpg");
+    Card cardFive = new Card("Clubs", 9, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -162,11 +171,11 @@ public class GameTest {
   public void getAllPairsArray_returnsCorrectSizeArray_4() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 12);
-    Card cardTwo = new Card("Spades", 12);
-    Card cardThree = new Card("Diamonds", 12);
-    Card cardFour = new Card("Hearts", 12);
-    Card cardFive = new Card("Hearts", 4);
+    Card cardOne = new Card("Clubs", 12, "../images/image.jpg");
+    Card cardTwo = new Card("Spades", 12, "../images/image.jpg");
+    Card cardThree = new Card("Diamonds", 12, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 12, "../images/image.jpg");
+    Card cardFive = new Card("Hearts", 4, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -182,11 +191,11 @@ public class GameTest {
   public void getAllPairsFullHouse_returnsCorrectSizeArray_5() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 12);
-    Card cardTwo = new Card("Spades", 7);
-    Card cardThree = new Card("Diamonds", 7);
-    Card cardFour = new Card("Hearts", 7);
-    Card cardFive = new Card("Hearts", 12);
+    Card cardOne = new Card("Clubs", 12, "../images/image.jpg");
+    Card cardTwo = new Card("Spades", 7, "../images/image.jpg");
+    Card cardThree = new Card("Diamonds", 7, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 7, "../images/image.jpg");
+    Card cardFive = new Card("Hearts", 12, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -200,11 +209,11 @@ public class GameTest {
   public void getAllPairs_returnsCorrectSizeArray_3() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 12);
-    Card cardTwo = new Card("Spades", 7);
-    Card cardThree = new Card("Diamonds", 7);
-    Card cardFour = new Card("Hearts", 7);
-    Card cardFive = new Card("Hearts", 9);
+    Card cardOne = new Card("Clubs", 12, "../images/image.jpg");
+    Card cardTwo = new Card("Spades", 7, "../images/image.jpg");
+    Card cardThree = new Card("Diamonds", 7, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 7, "../images/image.jpg");
+    Card cardFive = new Card("Hearts", 9, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -218,11 +227,11 @@ public class GameTest {
   public void getAllPairs_returnsCorrectSizeArray_2() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 12);
-    Card cardTwo = new Card("Spades", 7);
-    Card cardThree = new Card("Diamonds", 7);
-    Card cardFour = new Card("Hearts", 5);
-    Card cardFive = new Card("Hearts", 9);
+    Card cardOne = new Card("Clubs", 12, "../images/image.jpg");
+    Card cardTwo = new Card("Spades", 7, "../images/image.jpg");
+    Card cardThree = new Card("Diamonds", 7, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 5, "../images/image.jpg");
+    Card cardFive = new Card("Hearts", 9, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -236,7 +245,7 @@ public class GameTest {
   public void isInPairsArray_returnsTrueIfArrayContainsCard() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 12);
+    Card cardOne = new Card("Clubs", 12, "../images/image.jpg");
     hand.add(cardOne);
     assertEquals(true, game.isInPairsArray(cardOne, hand));
   }
@@ -245,11 +254,11 @@ public class GameTest {
   public void isFacePair_returnsTrueIfPairIsJacksOrGreater() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 12);
-    Card cardTwo = new Card("Spades", 12);
-    Card cardThree = new Card("Diamonds", 7);
-    Card cardFour = new Card("Hearts", 5);
-    Card cardFive = new Card("Hearts", 9);
+    Card cardOne = new Card("Clubs", 12, "../images/image.jpg");
+    Card cardTwo = new Card("Spades", 12, "../images/image.jpg");
+    Card cardThree = new Card("Diamonds", 7, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 5, "../images/image.jpg");
+    Card cardFive = new Card("Hearts", 9, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -263,11 +272,11 @@ public class GameTest {
   public void isThreeOfAKind_correctlyEvaluatesPair_true() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 2);
-    Card cardTwo = new Card("Spades", 12);
-    Card cardThree = new Card("Diamonds", 12);
-    Card cardFour = new Card("Hearts", 12);
-    Card cardFive = new Card("Hearts", 4);
+    Card cardOne = new Card("Clubs", 2, "../images/image.jpg");
+    Card cardTwo = new Card("Spades", 12, "../images/image.jpg");
+    Card cardThree = new Card("Diamonds", 12, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 12, "../images/image.jpg");
+    Card cardFive = new Card("Hearts", 4, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -282,11 +291,11 @@ public class GameTest {
   public void isFullHouse_correctlyEvaluatesPair_true() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 4);
-    Card cardTwo = new Card("Spades", 12);
-    Card cardThree = new Card("Diamonds", 12);
-    Card cardFour = new Card("Hearts", 12);
-    Card cardFive = new Card("Hearts", 4);
+    Card cardOne = new Card("Clubs", 4, "../images/image.jpg");
+    Card cardTwo = new Card("Spades", 12, "../images/image.jpg");
+    Card cardThree = new Card("Diamonds", 12, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 12, "../images/image.jpg");
+    Card cardFive = new Card("Hearts", 4, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -301,11 +310,11 @@ public class GameTest {
   public void isFourOfAKind_correctlyEvaluatesPair_true() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 12);
-    Card cardTwo = new Card("Spades", 12);
-    Card cardThree = new Card("Diamonds", 12);
-    Card cardFour = new Card("Hearts", 12);
-    Card cardFive = new Card("Hearts", 4);
+    Card cardOne = new Card("Clubs", 12, "../images/image.jpg");
+    Card cardTwo = new Card("Spades", 12, "../images/image.jpg");
+    Card cardThree = new Card("Diamonds", 12, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 12, "../images/image.jpg");
+    Card cardFive = new Card("Hearts", 4, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -320,11 +329,11 @@ public class GameTest {
   public void isTwoPair_correctlyEvaluatesPair_true() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 2);
-    Card cardTwo = new Card("Spades", 2);
-    Card cardThree = new Card("Diamonds", 10);
-    Card cardFour = new Card("Hearts", 10);
-    Card cardFive = new Card("Clubs", 4);
+    Card cardOne = new Card("Clubs", 2, "../images/image.jpg");
+    Card cardTwo = new Card("Spades", 2, "../images/image.jpg");
+    Card cardThree = new Card("Diamonds", 10, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 10, "../images/image.jpg");
+    Card cardFive = new Card("Clubs", 4, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
@@ -340,11 +349,11 @@ public class GameTest {
     ArrayList<Card> hand = new ArrayList<Card>();
     Player player = new Player("Blake");
     Game game = new Game("GameOne");
-    Card cardOne = new Card("Clubs", 2);
-    Card cardTwo = new Card("Spades", 2);
-    Card cardThree = new Card("Diamonds", 10);
-    Card cardFour = new Card("Hearts", 10);
-    Card cardFive = new Card("Clubs", 4);
+    Card cardOne = new Card("Clubs", 2, "../images/image.jpg");
+    Card cardTwo = new Card("Spades", 2, "../images/image.jpg");
+    Card cardThree = new Card("Diamonds", 10, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 10, "../images/image.jpg");
+    Card cardFive = new Card("Clubs", 4, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
