@@ -18,27 +18,30 @@
   <div class="col-xs-1"></div>
 </div>
 
-#if ($newScore < $oldScore)
-  losing
-#elseif ($newScore - $oldScore == $bet * 250)
-  royalflush
-#elseif ($newScore - $oldScore == $bet * 50)
-  straightflush
-#elseif ($newScore - $oldScore == $bet * 25)
-  fourofakind
-#elseif ($newScore - $oldScore == $bet * 9)
-  fullhouse
-#elseif ($newScore - $oldScore == $bet * 6)
-  flush
-#elseif ($newScore - $oldScore == $bet * 4)
-  straight
-#elseif ($newScore - $oldScore == $bet * 3)
-  threeofakind
-#elseif ($newScore - $oldScore == $bet * 2)
-  twopair
-#elseif ($newScore - $oldScore == $bet * 1)
-  facepair
-#end
+<div id="wins">
+  #if ($newScore < $oldScore)
+    <h2>You Lost!</h2>
+  #elseif ($newScore - $oldScore == $bet * 250)
+    <h2>Royal Flush!</h2>
+  #elseif ($newScore - $oldScore == $bet * 50)
+    <h2>Straight Flush</h2>
+  #elseif ($newScore - $oldScore == $bet * 25)
+    <h2>Four of a Kind!</h2>
+  #elseif ($newScore - $oldScore == $bet * 9)
+    <h2>Full House</h2>
+  #elseif ($newScore - $oldScore == $bet * 6)
+    <h2>Flush!</h2>
+  #elseif ($newScore - $oldScore == $bet * 4)
+    <h2>Straight!</h2>
+  #elseif ($newScore - $oldScore == $bet * 3)
+    <h2>Three of a Kind!</h2>
+  #elseif ($newScore - $oldScore == $bet * 2)
+    <h2>Two Pair!</h2>
+  #elseif ($newScore - $oldScore == $bet * 1)
+    <h2>Face Pair!</h2>
+  #end
+</div>
+
 
 
 

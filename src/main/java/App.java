@@ -39,6 +39,7 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       Game newGame = game;
       newGame.getDeckCards().clear();
+      newGame.getHandCards().clear();
       newGame.getDeck();
       newGame.getHand();
       model.put("game", newGame);
@@ -58,7 +59,6 @@ public class App {
         }
       }
       newGame.exchangeCards(newGame.getHandCards(), exchangeList);
-      System.out.println(newGame.getDeckCards().size());
       model.put("game", newGame);
       model.put("player", Player.all().get(0));
       model.put("template", "templates/play.vtl");
@@ -72,7 +72,14 @@ public class App {
       Player player = Player.all().get(0);
       int bet = player.getBet();
       int oldScore = player.getScore();
-      int newScore = newGame.updateScore(player, newGame.getHandCards());
+      newGame.updateScore(player, newGame.getHandCards());
+      System.out.println("1:" + newGame.getHandCards().get(0).getRank() +
+      " 2:" + newGame.getHandCards().get(1).getRank() +
+      " 3:" + newGame.getHandCards().get(2).getRank() +
+      " 4:" + newGame.getHandCards().get(3).getRank() +
+      " 5:" + newGame.getHandCards().get(4).getRank() );
+      int newScore = player.getScore();
+      System.out.println("Old Score:" +oldScore + ", New Score" + newScore + ", Bet:" + bet);
       model.put("bet", bet);
       model.put("oldScore", oldScore);
       model.put("newScore", newScore);

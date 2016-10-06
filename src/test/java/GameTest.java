@@ -351,13 +351,12 @@ public class GameTest {
     Card cardTwo = new Card("Spades", 2, "../images/image.jpg");
     Card cardThree = new Card("Diamonds", 10, "../images/image.jpg");
     Card cardFour = new Card("Hearts", 10, "../images/image.jpg");
-    Card cardFive = new Card("Clubs", 4, "../images/image.jpg");
+    Card cardFive = new Card("Clubs", 14, "../images/image.jpg");
     hand.add(cardOne);
     hand.add(cardTwo);
     hand.add(cardThree);
     hand.add(cardFour);
     hand.add(cardFive);
-    game.getAllPairs(hand);
     game.updateScore(player, hand);
     assertEquals(player.getScore(), 60);
   }
