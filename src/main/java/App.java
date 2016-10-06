@@ -62,5 +62,7 @@ public class App {
       model.put("template", "templates/play.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    // post("/board/exchange")
   }
 }
