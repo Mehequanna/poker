@@ -5,6 +5,7 @@ import java.util.Random;
 import org.sql2o.*;
 
 public class Game {
+  private int id;
   private String gameName;
   private String[] suits = {"clubs", "spades", "hearts", "diamonds"};
   private Integer[] ranks = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
@@ -15,6 +16,52 @@ public class Game {
 
   public Game(String gameName) {
     this.gameName = gameName;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public String getGameName() {
+    return gameName;
+  }
+
+  public boolean isEqualTo(Object otherGame) {
+    if (!(otherGame instanceof Game)) {
+      return false;
+    } else {
+      Game newGame = (Game) otherGame;
+      return this.getGameName().equals(newGame.getGameName());
+    }
+  }
+
+
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO games (gameName) VALUES (:gameName)";
+      this.id = (int) con.createQuery(sql, true)
+        .addParameter("gameName", this.gameName)
+        .executeUpdate()
+        .getKey();
+    }
+  }
+
+  public static List<Game> all() {
+    String sql = "select * from games";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql)
+      .executeAndFetch(Game.class);
+    }
+  }
+
+  public static Game find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM games WHERE id=:id";
+      Game game = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Game.class);
+      return game;
+    }
   }
 
   public ArrayList<Card> getAllPairsArray() {
