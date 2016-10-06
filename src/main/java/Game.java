@@ -30,9 +30,9 @@ public class Game {
   }
 
   public ArrayList<Card> getDeck() {
+    int value = 1;
     for (String suit : suits) {
       for(int rank : ranks) {
-        int value = 1;
         String link = "../images/" + value + ".svg";
         Card card = new Card(suit, rank, link);
         value ++;

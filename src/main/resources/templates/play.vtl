@@ -1,12 +1,36 @@
-<div class="row">
-  <div class="col-xs-1"></div>
-  <div class="col-xs-2"><img src="../images/cardback.png"/></div>
-  <div class="col-xs-2"><img src="../images/cardback.png"/></div>
-  <div class="col-xs-2"><img src="../images/cardback.png"/></div>
-  <div class="col-xs-2"><img src="../images/cardback.png"/></div>
-  <div class="col-xs-2"><img src="../images/cardback.png"/></div>
-  <div class="col-xs-1"></div>
-</div>
+<form class="float-right" action="index.html" method="post">
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-2">
+      <img src=$game.getHandCards().get(0).getLink()/>
+      <input type="checkbox" class="css-checkbox" id="checkbox1">
+      <label for="checkbox1" name="checkbox1" class="css-label lite-x-gray">Exchange</label>
+    </div>
+    <div class="col-xs-2">
+      <img src=$game.getHandCards().get(1).getLink()/>
+      <input type="checkbox" class="css-checkbox" id="checkbox2">
+      <label for="checkbox2" name="checkbox2" class="css-label lite-x-gray">Exchange</label>
+    </div>
+    <div class="col-xs-2">
+      <img src=$game.getHandCards().get(2).getLink()/>
+      <input type="checkbox" class="css-checkbox" id="checkbox3">
+      <label for="checkbox3" name="checkbox3" class="css-label lite-x-gray">Exchange</label>
+    </div>
+    <div class="col-xs-2">
+      <img src=$game.getHandCards().get(3).getLink()/>
+      <input type="checkbox" class="css-checkbox" id="checkbox4">
+      <label for="checkbox4" name="checkbox4" class="css-label lite-x-gray">Exchange</label>
+    </div>
+    <div class="col-xs-2">
+      <img src=$game.getHandCards().get(4).getLink()/>
+      <input type="checkbox" class="css-checkbox" id="checkbox5">
+      <label for="checkbox5" name="checkbox5" class="css-label lite-x-gray">Exchange</label>
+    </div>
+    <div class="col-xs-1"></div>
+  </div>
+  <button type="submit" name="button" class="btn btn-primary">Exchange Cards</button>
+</form>
+
 
 <form action="/board/deal" method="post">
   <button class="btn btn-default" type="submit" name="button">Deal Cards</button>

@@ -21,10 +21,8 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       String playerName = request.queryParams("playerName");
       Player player = new Player(playerName);
-      Game game = new Game("Game1");
       model.put("template", "templates/board.vtl");
       model.put("player", player);
-      model.put("game", game);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -32,6 +30,17 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/board.vtl");
       model.put("player", Player.all().get(0));
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/board/deal", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Game game = new Game("Game1");
+      game.getDeck();
+      game.getHand();
+      model.put("game", game);
+      model.put("player", Player.all().get(0));
+      model.put("template", "templates/play.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
   }

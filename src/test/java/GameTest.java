@@ -35,8 +35,8 @@ public class GameTest {
     Game game = new Game("GameOne");
     ArrayList<Card> cards = game.getDeck();
     ArrayList<Card> hand = game.getHand();
-    String imageLink = cards.get(0).getLink();
-    assertEquals(imageLink, "../images/1.svg");
+    String imageLink = cards.get(1).getLink();
+    assertEquals(imageLink, "../images/2.svg");
   }
 
   @Test
