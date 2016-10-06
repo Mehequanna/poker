@@ -72,6 +72,7 @@ public class App {
       Player player = Player.all().get(0);
       int bet = player.getBet();
       int oldScore = player.getScore();
+      newGame.getAllPairs(newGame.getHandCards());
       newGame.updateScore(player, newGame.getHandCards());
       System.out.println("1:" + newGame.getHandCards().get(0).getRank() +
       " 2:" + newGame.getHandCards().get(1).getRank() +
