@@ -52,17 +52,34 @@ public class App {
       Game newGame = game;
       ArrayList<Card> exchangeList = new ArrayList<Card>();
       String[] cardsToExchange = request.queryParamsValues("checkbox");
-      for (int i = 0; i < cardsToExchange.length; i++) {
-        exchangeList.add(newGame.getHandCards().get(Integer.parseInt(cardsToExchange[i])));
+      if (cardsToExchange.length > 0) {
+        for (int i = 0; i < cardsToExchange.length; i++) {
+          exchangeList.add(newGame.getHandCards().get(Integer.parseInt(cardsToExchange[i])));
+        }
       }
       newGame.exchangeCards(newGame.getHandCards(), exchangeList);
       System.out.println(newGame.getDeckCards().size());
       model.put("game", newGame);
       model.put("player", Player.all().get(0));
       model.put("template", "templates/play.vtl");
+      response.redirect("/board/results");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // post("/board/exchange")
+    get("/board/results" , (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Game newGame = game;
+      Player player = Player.all().get(0);
+      int bet = player.getBet();
+      int oldScore = player.getScore();
+      int newScore = newGame.updateScore(player, newGame.getHandCards());
+      model.put("bet", bet);
+      model.put("oldScore", oldScore);
+      model.put("newScore", newScore);
+      model.put("game", newGame);
+      model.put("player", player);
+      model.put("template", "templates/results.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 }

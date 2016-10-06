@@ -40,6 +40,10 @@ public class LeaderBoard {
     return score;
   }
 
+  public Timestamp getTimestamp() {
+    return date;
+  }
+
   public int getLeaderScore() {
     LeaderBoard leader = LeaderBoard.find(this.id);
     return leader.getScore();
