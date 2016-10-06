@@ -8,6 +8,9 @@ import org.sql2o.*;
 
 public class GameTest {
 
+  @Rule
+  public DatabaseRule database = new DatabaseRule();
+
   @Test
   public void game_instantiates() {
     Game game = new Game("GameOne");
@@ -35,8 +38,8 @@ public class GameTest {
     Game game = new Game("GameOne");
     ArrayList<Card> cards = game.getDeck();
     ArrayList<Card> hand = game.getHand();
-    String imageLink = cards.get(0).getLink();
-    assertEquals(imageLink, "../images/1.svg");
+    String imageLink = cards.get(1).getLink();
+    assertEquals(imageLink, "../images/2.svg");
   }
 
   @Test
@@ -391,5 +394,42 @@ public class GameTest {
     System.out.println(hand.get(3).getRank() + " of " + hand.get(3).getSuit());
     System.out.println(hand.get(4).getRank() + " of " + hand.get(4).getSuit());
     assertEquals(game.getDeckCards().size(), 44);
+  }
+
+
+  @Test
+  public void save_insertsObjectIntoDatabase_Game() {
+    Game testGame = new Game("game1");
+    testGame.save();
+    assertEquals(true, Game.all().get(0).isEqualTo(testGame));
+  }
+
+  @Test
+  public void save_assignsIdToGame() {
+    Game testGame = new Game("game1");
+    testGame.save();
+    Game savedGame = Game.all().get(0);
+    assertEquals(savedGame.getId(), testGame.getId());
+  }
+
+  @Test
+  public void all_returnsAllInstancesOfGame_true() {
+    Game firstGame = new Game("game1");
+    firstGame.save();
+    Game secondGame = new Game("game2");
+    secondGame.save();
+    assertEquals(true, Game.all().get(0).isEqualTo(firstGame));
+    assertEquals(true, Game.all().get(1).isEqualTo(secondGame));
+  }
+
+  @Test
+  public void find_returnsGameWithSameId_secondGame() {
+    Game firstGame = new Game("game1");
+    firstGame.save();
+    Game secondGame = new Game("game2");
+    secondGame.save();
+    System.out.println(Game.find(secondGame.getId()).getGameName());
+    System.out.println(secondGame.getGameName());
+    assertTrue(Game.find(secondGame.getId()).isEqualTo(secondGame));
   }
 }

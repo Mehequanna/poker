@@ -10,6 +10,8 @@ public class App {
   public static void main(String[] args) {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
+    Game game = new Game("Game1");
+
 
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
@@ -21,10 +23,8 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       String playerName = request.queryParams("playerName");
       Player player = new Player(playerName);
-      Game game = new Game("Game1");
       model.put("template", "templates/board.vtl");
       model.put("player", player);
-      model.put("game", game);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -34,5 +34,35 @@ public class App {
       model.put("player", Player.all().get(0));
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    post("/board/deal", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Game newGame = game;
+      newGame.getDeckCards().clear();
+      newGame.getDeck();
+      newGame.getHand();
+      model.put("game", newGame);
+      model.put("player", Player.all().get(0));
+      model.put("template", "templates/play.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/board/exchange" , (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Game newGame = game;
+      ArrayList<Card> exchangeList = new ArrayList<Card>();
+      String[] cardsToExchange = request.queryParamsValues("checkbox");
+      for (int i = 0; i < cardsToExchange.length; i++) {
+        exchangeList.add(newGame.getHandCards().get(Integer.parseInt(cardsToExchange[i])));
+      }
+      newGame.exchangeCards(newGame.getHandCards(), exchangeList);
+      System.out.println(newGame.getDeckCards().size());
+      model.put("game", newGame);
+      model.put("player", Player.all().get(0));
+      model.put("template", "templates/play.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    // post("/board/exchange")
   }
 }
