@@ -45,7 +45,7 @@ public class Game {
   public ArrayList<Card> getHand() {
     for (int i = 0; i < 5; i++) {
       Random random = new Random();
-      int randomNumber = random.nextInt(newDeck.size()) + 1;
+      int randomNumber = random.nextInt(newDeck.size());
       Card chosen = newDeck.get(randomNumber);
       hand.add(chosen);
       newDeck.remove(chosen);
@@ -58,7 +58,7 @@ public class Game {
       Card exchangeCard = exchangeList.get(i);
       hand.remove(exchangeCard);
       Random random = new Random();
-      int randomNumber = random.nextInt(newDeck.size()) + 1;
+      int randomNumber = random.nextInt(newDeck.size());
       Card chosen = newDeck.get(randomNumber);
       hand.add(chosen);
       newDeck.remove(chosen);
