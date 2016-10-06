@@ -50,7 +50,7 @@ public class LeaderBoard {
       String sql = "SELECT date FROM leader_board WHERE id=:id;";
       return con.createQuery(sql)
       .addParameter("id", id)
-      .executeAndFetchFirst(LeaderBoard.class);
+      .executeAndFetchFirst(Timestamp.class);
     }
   }
 
