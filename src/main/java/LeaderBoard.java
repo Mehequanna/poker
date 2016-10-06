@@ -1,7 +1,6 @@
 import org.sql2o.*;
-import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class LeaderBoard {
@@ -10,17 +9,15 @@ public class LeaderBoard {
   private int id;
   private Timestamp date;
 
-  public LeaderBoard(String name, int score, Timestamp date) {
+  public LeaderBoard(String name, int score) {
     this.name = name;
     this.score = score;
-    this.date = date;
 
    try(Connection con = DB.sql2o.open()) {
-     String sql = "INSERT INTO leader_board (name, score, date) VALUES (:name, :score, :date);";
+     String sql = "INSERT INTO leader_board (name, score, date) VALUES (:name, :score, now());";
      this.id = (int) con.createQuery(sql, true)
       .addParameter("name", this.name)
       .addParameter("score", this.score)
-      .addParameter("date", this.date)
       .executeUpdate()
       .getKey();
    }
@@ -48,14 +45,24 @@ public class LeaderBoard {
     return leader.getScore();
   }
 
-  public String getDate() {
-    return new SimpleDateFormat("MMMM dd, yyyy").format(this.date);
+  public static Timestamp findDate(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT date FROM leader_board WHERE id=:id;";
+      return con.createQuery(sql)
+      .addParameter("id", id)
+      .executeAndFetchFirst(LeaderBoard.class);
+    }
   }
 
-  public Timestamp getLeaderDate() {
-    LeaderBoard leader = LeaderBoard.find(this.id);
-    return leader.getDate();
+  public String getDate() {
+    Timestamp date = LeaderBoard.findDate(this.id);
+    return new SimpleDateFormat("MMMB dd, yyyy").format(date);
   }
+
+  // public String getLeaderDate(int id) {
+  //   LeaderBoard leader = LeaderBoard.findDate(this.id);
+  //   return leader.getDate();
+  // }
 
   public static LeaderBoard find(int id) {
     try(Connection con = DB.sql2o.open()) {
