@@ -39,6 +39,7 @@ _The player can choose any number of cards from their hand to to exchange, in th
 
 _Player doesn't update when page is refreshed._
 _Game doesn't trigger a 'lose screen' when player runs out of money._
+_Clicking exchange cards with no cards selected results in a 500 error._
 
 ## Specifications
 * On page load:

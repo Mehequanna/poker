@@ -207,10 +207,9 @@ public class Game {
 
   public boolean isStraight(ArrayList<Card> hand) {
     boolean straight = false;
-    if(!(this.isPair(hand))) {
-      if(this.getHighCard(hand).getRank() - this.getLowCard(hand).getRank() == 4){
-        straight = true;
-      }
+    this.getAllPairs(hand);
+    if((allPairs.size() == 0) && (this.getHighCard(hand).getRank() - this.getLowCard(hand).getRank() == 4)){
+      straight = true;
     } else {
       straight = false;
     }

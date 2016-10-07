@@ -132,6 +132,24 @@ public class GameTest {
   }
 
   @Test
+  public void isStraightFalse_returnsTrueIsHandIsAStraight() {
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Game game = new Game("GameOne");
+    Card cardOne = new Card("Clubs", 10, "../images/image.jpg");
+    Card cardTwo = new Card("Hearts", 10, "../images/image.jpg");
+    Card cardThree = new Card("Spades", 12, "../images/image.jpg");
+    Card cardFour = new Card("Hearts", 11, "../images/image.jpg");
+    Card cardFive = new Card("Diamonds", 14, "../images/image.jpg");
+    hand.add(cardOne);
+    hand.add(cardTwo);
+    hand.add(cardThree);
+    hand.add(cardFour);
+    hand.add(cardFive);
+    assertEquals(false, game.isStraight(hand));
+    hand.clear();
+  }
+
+  @Test
   public void isRoyalFlush_returnsTrueIfHandIsRoyalFlush() {
     ArrayList<Card> hand = new ArrayList<Card>();
     Game game = new Game("GameOne");
