@@ -1,0 +1,29 @@
+Bet functionality -- figure out later!
+
+<div class="row">
+  <div class="col-xs-2 col-xs-offset-5">
+    <form action="/board/bet" method="post">
+      <div class="form-group">
+        <select name="playerBet" class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-default" name="button">Change Bet</button>
+    </form>
+  </div>
+</div>
+
+
+ post("/board/bet", (request, response) -> {
+   Map<String, Object> model = new HashMap<String, Object>();
+   int playerBet = Integer.parseInt(request.queryParams("playerBet"));
+   Player player = Player.all().get(0);
+   player.setBet(playerBet);
+   model.put("template", "templates/board.vtl");
+   model.put("player", player);
+   return new ModelAndView(model, layout);
+ }, new VelocityTemplateEngine());
