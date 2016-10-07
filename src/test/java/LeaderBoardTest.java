@@ -32,6 +32,13 @@ public class LeaderBoardTest {
     assertEquals(500, testLeader.getLeaderScore());
   }
 
+  @Test
+  public void save_recordsTimeOfCreationInDatabase_true() {
+    LeaderBoard testLeader = leaderAlpha;
+    String savedDate = LeaderBoard.find(testLeader.getId()).getDate();
+    assertEquals(savedDate, "October 07, 2016");
+    // Must insert current day's date in assertEquals statement to pass test
+  }
   // @Test
   // public void getLeaderDate_returnsLeaderDate_OCTB042016() {
   //   LeaderBoard testLeader = leaderAlpha;
