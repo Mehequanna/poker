@@ -12,6 +12,7 @@ public class LeaderBoard {
   public LeaderBoard(String name, int score) {
     this.name = name;
     this.score = score;
+    this.date = date;
 
    try(Connection con = DB.sql2o.open()) {
      String sql = "INSERT INTO leader_board (name, score, date) VALUES (:name, :score, now());";
@@ -49,18 +50,17 @@ public class LeaderBoard {
     return leader.getScore();
   }
 
-  public static Timestamp findDate(int id) {
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT date FROM leader_board WHERE id=:id;";
-      return con.createQuery(sql)
-      .addParameter("id", id)
-      .executeAndFetchFirst(Timestamp.class);
-    }
-  }
+  // public static Timestamp findDate(int id) {
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "SELECT date FROM leader_board WHERE id=:id;";
+  //     return con.createQuery(sql)
+  //     .addParameter("id", id)
+  //     .executeAndFetchFirst(Timestamp.class);
+  //   }
+  // }
 
   public String getDate() {
-    Timestamp date = LeaderBoard.findDate(this.id);
-    return new SimpleDateFormat("MMMB dd, yyyy").format(date);
+    return new SimpleDateFormat("MMMM dd, yyyy").format(this.date);
   }
 
   // public String getLeaderDate(int id) {
