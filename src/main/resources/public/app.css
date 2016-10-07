@@ -65,3 +65,8 @@ form label {
   font-weight: bold;
   margin-bottom: 10px;
 }
+
+.selectpicker {
+  margin: 0 auto;
+  display: block;
+}
