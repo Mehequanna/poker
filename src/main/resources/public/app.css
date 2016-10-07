@@ -70,3 +70,10 @@ form label {
   margin: 0 auto;
   display: block;
 }
+
+table {
+    -moz-box-shadow:inset 0 0 10px 0 #222;
+    -webkit-box-shadow:inset 0 0 10px 0 #222;
+    box-shadow:inset 0 0 10px 0 #222;
+    padding-top: 10px 0 10px;
+}
