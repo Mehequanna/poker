@@ -24,7 +24,7 @@ public class LeaderBoard {
    }
   }
 
-  public int getId() {
+  public int getLeaderId() {
     return this.id;
   }
 
@@ -35,6 +35,14 @@ public class LeaderBoard {
   public String getLeaderName() {
     LeaderBoard leader = LeaderBoard.find(this.id);
     return leader.getName();
+  }
+
+  public static List<LeaderBoard> allLeaders() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM leader_board ORDER by score;";
+      return con.createQuery(sql)
+        .executeAndFetch(LeaderBoard.class);
+    }
   }
 
   public int getScore() {
@@ -68,7 +76,7 @@ public class LeaderBoard {
   //   return leader.getDate();
   // }
 
-  public static LeaderBoard find(int id) {
+  public static LeaderBoard findLeader(int id) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM leader_board WHERE id=:id;";
       return con.createQuery(sql)

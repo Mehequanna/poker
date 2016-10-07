@@ -90,5 +90,15 @@ public class App {
       model.put("template", "templates/results.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    get("/board/leaderboard", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      String leader = LeaderBoard.findLeader(Leader);
+      List leaders = Leaderboard.allLeaders();
+      model.put("leader", leader);
+      model.put("leaders", leaders);
+      model.put("template", "templates/leaderboard.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 }

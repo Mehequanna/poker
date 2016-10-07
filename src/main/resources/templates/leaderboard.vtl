@@ -1,0 +1,22 @@
+
+<div class="tableDiv">
+  <h2 id="leaderboard">Leader Board</h2>
+  <table class="table table-bordered">
+    <tbody>
+      #foreach ($leader in $leaders)
+        <tr>
+          <td>Name</td>
+          <td>$leaderboard.getLeaderName()</td>
+        </tr>
+        <tr>
+          <td>Score</td>
+          <td>$leaderboard.getLeaderScore()</td>
+        </tr>
+        <tr>
+          <td>Date</td>
+          <td>$leaderboard.getDate()</td>
+        </tr>
+      #end
+    </tbody>
+  </table>
+</div>
