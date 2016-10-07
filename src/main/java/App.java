@@ -40,6 +40,7 @@ public class App {
       Game newGame = game;
       newGame.getDeckCards().clear();
       newGame.getHandCards().clear();
+      newGame.getAllPairsArray().clear();
       newGame.getDeck();
       newGame.getHand();
       model.put("game", newGame);
