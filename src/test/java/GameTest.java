@@ -357,6 +357,7 @@ public class GameTest {
     hand.add(cardThree);
     hand.add(cardFour);
     hand.add(cardFive);
+    game.getAllPairs(hand);
     game.updateScore(player, hand);
     assertEquals(player.getScore(), 60);
   }

@@ -277,7 +277,6 @@ public class Game {
     int multiplier = 0;
     int bet = player.getBet();
     Integer score = player.getScore();
-    this.getAllPairs(hand);
     if (this.isRoyalFlush(hand)) {
       multiplier = 250;
     } else if (this.isStraightFlush(hand)) {
