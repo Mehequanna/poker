@@ -57,3 +57,11 @@ img {
 form label {
   color: white;
 }
+
+.btn-default {
+  margin: 0 auto;
+  display: block;
+  border: 1px solid black;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
