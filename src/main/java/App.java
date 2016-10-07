@@ -35,16 +35,6 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/board/bet", (request, response) -> {
-      Map<String, Object> model = new HashMap<String, Object>();
-      int playerBet = Integer.parseInt(request.queryParams("playerBet"));
-      Player player = Player.all().get(0);
-      player.setBet(playerBet);
-      model.put("template", "templates/board.vtl");
-      model.put("player", player);
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
-
     post("/board/deal", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Game newGame = game;
