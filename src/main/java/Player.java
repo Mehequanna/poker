@@ -7,6 +7,7 @@ public class Player {
   private String name;
   private int score;
   private int bet;
+  private int id;
   private List<String> hand;
   private static ArrayList<Player> players = new ArrayList<Player>();
 
@@ -15,6 +16,11 @@ public class Player {
     this.score = 50;
     this.bet = 5;
     players.add(this);
+    this.id = players.size();
+  }
+
+  public int getId() {
+    return id;
   }
 
   public static ArrayList<Player> all() {
