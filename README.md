@@ -12,21 +12,14 @@ _Video Poker is a 5 card draw poker_
 _The game registers standard poker hand values, starting with face-value-pairs, up to a royal flush._
 _The player can choose any number of cards from their hand to to exchange, in the hopes of getting a better set of cards from the next deal._
 
+![screenshot of project](poker.png)
+
 ## Setup/Installation Requirements
 
 * _Clone this repository (https://github.com/CalebPaul/poker.git) to your desktop_
 
-* Type in terminal:
-	`postgres`
-
-* Open new terminal window & Type in PSQL:
-	  `CREATE DATABASE poker;`
-
-* Type in terminal:
-	  `psql poker < poker.sql`
-
-* Type in terminal:
-	`\c poker`
+* Type in terminal from desktop:
+	`cd poker`
 
 * Type in terminal:
 	  `gradle run`
@@ -56,7 +49,7 @@ _Caleb Paul: tweet - @calebpaulmusic_
 
 _Eric Krause: krause197@gmail.com_
 
-_Stephen Emery: emery.stephen@gmail.com_
+_Stephen Emery: https://github.com/Mehequanna_
 
 _Blake Scala: blakescala@gmail.com_
 
