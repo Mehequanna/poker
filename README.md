@@ -10,6 +10,7 @@
 _Video Poker is a 5 card draw poker_
 
 _The game registers standard poker hand values, starting with face-value-pairs, up to a royal flush._
+
 _The player can choose any number of cards from their hand to to exchange, in the hopes of getting a better set of cards from the next deal._
 
 ![screenshot of project](poker.png)
@@ -31,7 +32,9 @@ _The player can choose any number of cards from their hand to to exchange, in th
 ## Known Bugs
 
 _Player doesn't update when page is refreshed._
+
 _Game doesn't trigger a 'lose screen' when player runs out of money._
+
 _Clicking exchange cards with no cards selected results in a 500 error._
 
 ## Specifications
@@ -58,10 +61,15 @@ _Blake Scala: blakescala@gmail.com_
 ## Technologies Used
 
 _Bootstrap_
+
 _Java_
+
 _Gradle_
+
 _Velocity Template Engine_
+
 _Spark_
+
 _PostgreSQL_
 
 ### License
